@@ -30,8 +30,6 @@ function draw() {
     }
 
     before = after;
-
-    return true;
 }
 
 Leap.loop(controllerOptions, function(frame, done) {

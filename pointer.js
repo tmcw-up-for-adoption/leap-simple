@@ -26,7 +26,6 @@ function draw() {
     balls.attr('transform', function(d) {
         return 'translate(' + [d.tipPosition.x, -d.tipPosition.y] + ')';
     });
-    return true;
 }
 
 Leap.loop(controllerOptions, function(frame, done) {

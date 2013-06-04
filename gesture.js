@@ -34,8 +34,6 @@ function draw() {
     // slow down the movement of the ball
     vector[0] *= 0.9;
     vector[1] *= 0.9;
-
-    return true;
 }
 
 Leap.loop(controllerOptions, function(frame, done) {
