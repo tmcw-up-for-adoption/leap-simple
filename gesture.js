@@ -34,14 +34,9 @@ function draw() {
     // slow down the movement of the ball
     vector[0] *= 0.9;
     vector[1] *= 0.9;
-
-    d3.timer(draw, 10);
-    return true;
 }
 
-draw();
-
-Leap.loop(controllerOptions, function(frame) {
+Leap.loop(controllerOptions, function(frame, done) {
     if (frame.gestures.length > 0) {
         for (var i = 0; i < frame.gestures.length; i++) {
             var gesture = frame.gestures[i];
@@ -53,4 +48,6 @@ Leap.loop(controllerOptions, function(frame) {
             }
         }
     }
+    draw();
+    done();
 });

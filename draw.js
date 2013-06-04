@@ -30,16 +30,13 @@ function draw() {
     }
 
     before = after;
-
-    d3.timer(draw, 100);
-    return true;
 }
 
-draw();
-
-Leap.loop(controllerOptions, function(frame) {
+Leap.loop(controllerOptions, function(frame, done) {
     after = {};
     for (var i = 0; i < frame.pointables.length; i++) {
         after[frame.pointables[i].id] = frame.pointables[i];
     }
+    draw();
+    done();
 });

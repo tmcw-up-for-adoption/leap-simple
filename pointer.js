@@ -26,12 +26,10 @@ function draw() {
     balls.attr('transform', function(d) {
         return 'translate(' + [d.tipPosition.x, -d.tipPosition.y] + ')';
     });
-    d3.timer(draw, 100);
-    return true;
 }
 
-draw();
-
-Leap.loop(controllerOptions, function(frame) {
+Leap.loop(controllerOptions, function(frame, done) {
     fingers = frame.pointables;
+    draw();
+    done();
 });
